@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun with Triangles</title>
+    <link rel="stylesheet" href="AOT.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Fun With Triangles</h1>
+        <div class="navBar">
+          <nav class="isTraiangle">
+            <a href="index.html"> Is Traiangle ? </a>
+          </nav>
+          <nav class="quiz"><a href="quiz.html">Quiz</a></nav>
+          <nav class="hypotenuse">
+            <a href="hypotenuse.html">Hypotenuse </a>
+          </nav>
+          <nav class="AOT">
+            <a href="AOT.html"> Area of Triangle </a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="areaOfTriangle">
+          <h2>Calculate Area of a triangle</h2>
+
+          <label for="first side">Enter first side of a triangle</label>
+          <input id="first side" class="firstSide" type="number" />
+          <label for=" second side">Enter second side of a triangle</label>
+          <input id=" second side" class="secondSide" type="number" />
+          <label for="third side">Enter third side of a triangle</label>
+          <input id="third side" class="thirdSide" type="number" />
+
+          <button class="calaculateBtn">Calculate</button>
+
+          <h2 class="AOTInput"></h2>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    var firstSideInput = document.querySelector(".firstSide");
+    let secondSideInput = document.querySelector(".secondSide");
+    var thirdSideInput = document.querySelector(".thirdSide");
+    var buttonClass = document.querySelector(".calaculateBtn");
+    let AotValue = document.querySelector(".AOTInput");
+
+    function onButtonClicked() {
+      let firstSideValue = Number.parseInt(firstSideInput.value);
+      let secondSideValue = Number.parseInt(secondSideInput.value);
+      let thirdSideValue = Number.parseInt(thirdSideInput.value);
+
+      function getArea() {
+        // Return the area of a triangle using Heron's formula
+
+        var semiperimeter =
+          (firstSideValue + secondSideValue + thirdSideValue) / 2;
+        var calculation =
+          semiperimeter *
+          (semiperimeter - firstSideValue) *
+          (semiperimeter - secondSideValue) *
+          (semiperimeter - thirdSideValue);
+        var sqrtValue = Number.parseInt(Math.sqrt(calculation));
+        console.log(sqrtValue);
+        if (sqrtValue === 0) {
+          AotValue.innerText =
+            "Enter valid side lengths such that each side lengths";
+        } else {
+          AotValue.innerText = `Area of a triangle using heron's formula is ${sqrtValue} units`;
+        }
+      }
+
+      getArea();
+    }
+    buttonClass.addEventListener("click", onButtonClicked);
+  </script>
+</html>
