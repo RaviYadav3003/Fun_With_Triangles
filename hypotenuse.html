@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="hypotenuse.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypotenuse</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Fun With Triangles</h1>
+        <div class="navBar">
+          <nav class="isTraiangle"><a href="index.html">Is Traiangle ?</a></nav>
+          <nav class="quiz"><a href="quiz.html">Quiz</a></nav>
+          <nav class="hypotenuse">
+            <a href="hypotenuse.html">Hypotenuse </a>
+          </nav>
+          <nav class="areaOfTriangle">
+            <a href="AOT.html"> Area of Triangle </a>
+          </nav>
+        </div>
+      </header>
+      <div class="Main">
+        <h2>Calculate Hypotenuse of a Triangle</h2>
+        <label for="a">Enter base value (A) = </label>
+        <input id="a" class="valueA" type="number" />
+        <label for="b">Enter base value (B) = </label>
+        <input id="b" class="valueB" type="number" />
+        <button class="btnHypotenuse">Calculate Hypotenuse</button>
+        <h2 class="outputHypt"></h2>
+      </div>
+    </div>
+    <footer>
+      <p>© | 2022 | raviyadav</p>
+      <ul class="list-unordered inline-list">
+        <li>
+          <a class="links" href="https://github.com/RaviYadav3003" target="_blank">
+            <img src="image\github.svg\github.svg" alt="github" />
+          </a>
+        </li>
+        <li>
+          <a class="links" href="https://discord.com/invite/kCtYjBXh" target="_blank">
+            <img src="image\discord.svg\discord.svg" alt="discord" />
+          </a>
+        </li>
+        <li>
+          <a class="links" href="https://twitter.com/raviyadav4013" target="_blank">
+            <img src="image\twitter.svg\twitter.svg "alt="twitter" />
+          </a>
+        </li>
+        <li>
+          <a
+            class="links"
+            href="https://www.instagram.com/30_ravi_yadav/"
+            target="_blank"
+          >
+            <img src="image\instagram.svg\instagram.svg" alt="instagram" />
+          </a>
+        </li>
+      </ul>
+    </footer>
+    <script>
+      var inputValueA = document.querySelector(".valueA");
+      var inputValueB = document.querySelector(".valueB");
+      var btnHypt = document.querySelector(".btnHypotenuse");
+      var outputHyptValue = document.querySelector(".outputHypt");
+      function onHyptClicked() {
+        console.log(inputValueA.value);
+        console.log(inputValueB.value);
+        var hypt = Math.hypot(inputValueA.value, inputValueB.value);
+        console.log(hypt);
+        outputHyptValue.innerText = `Hypotenuse is ${hypt}`;
+      }
+      btnHypt.addEventListener("click", onHyptClicked);
+    </script>
+  </body>
+</html>
