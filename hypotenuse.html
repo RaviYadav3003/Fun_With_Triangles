@@ -71,7 +71,7 @@
         console.log(inputValueB.value);
         var hypt = Math.hypot(inputValueA.value, inputValueB.value);
         console.log(hypt);
-        outputHyptValue.innerText = `Hypotenuse is ${hypt}`;
+        outputHyptValue.innerText = `Hypotenuse is ${hypt.toFixed()}`;
       }
       btnHypt.addEventListener("click", onHyptClicked);
     </script>
