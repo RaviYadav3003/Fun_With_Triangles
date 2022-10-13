@@ -29,11 +29,11 @@
           <h2>Calculate Area of a triangle</h2>
 
           <label for="first side">Enter first side of a triangle</label>
-          <input id="first side" class="firstSide" type="number" />
+          <input id="first side" class="firstSide" type="text" />
           <label for=" second side">Enter second side of a triangle</label>
-          <input id=" second side" class="secondSide" type="number" />
+          <input id=" second side" class="secondSide" type="text" />
           <label for="third side">Enter third side of a triangle</label>
-          <input id="third side" class="thirdSide" type="number" />
+          <input id="third side" class="thirdSide" type="text" />
 
           <button class="calaculateBtn">Calculate</button>
 
@@ -79,13 +79,11 @@
     let AotValue = document.querySelector(".AOTInput");
 
     function onButtonClicked() {
-      let firstSideValue = Number.parseInt(firstSideInput.value);
-      let secondSideValue = Number.parseInt(secondSideInput.value);
-      let thirdSideValue = Number.parseInt(thirdSideInput.value);
-
+      let firstSideValue = Number(firstSideInput.value);
+      let secondSideValue = Number(secondSideInput.value);
+      let thirdSideValue = Number(thirdSideInput.value);
+     
       function getArea() {
-        // Return the area of a triangle using Heron's formula
-
         var semiperimeter =
           (firstSideValue + secondSideValue + thirdSideValue) / 2;
         var calculation =
@@ -93,9 +91,11 @@
           (semiperimeter - firstSideValue) *
           (semiperimeter - secondSideValue) *
           (semiperimeter - thirdSideValue);
-        var sqrtValue = Number.parseInt(Math.sqrt(calculation));
+        var sqrtValue = Number(Math.sqrt(calculation));
         console.log(sqrtValue);
-        if (sqrtValue === 0) {
+        if (firstSideValue <= 0 || secondSideValue <= 0 || thirdSideValue <= 0){
+          AotValue.innerText = " Enter valid Input"
+        }else if (sqrtValue === 0) {
           AotValue.innerText =
             "Enter valid side lengths such that each side lengths";
         } else {

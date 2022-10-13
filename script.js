@@ -20,6 +20,8 @@ const onisTriangleClicked = function () {
   var AddedValue = angleNum0 + angleNum1 + angleNum2;
   if (AddedValue == 180) {
     return (lastLineBtn.innerText = "It's A Triangle");
+  } else if(angleIn0 <=0|| angleIn1<=0 || angleIn2<=0) {
+    return (lastLineBtn.innerText = "Enter vaild angle");
   } else {
     return (lastLineBtn.innerText = "Not Forming a Triangle ");
   }

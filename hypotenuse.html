@@ -69,9 +69,13 @@
       function onHyptClicked() {
         console.log(inputValueA.value);
         console.log(inputValueB.value);
-        var hypt = Math.hypot(inputValueA.value, inputValueB.value);
+        var hypt = Math.hypot(inputValueA.value, inputValueB.value); 
         console.log(hypt);
         outputHyptValue.innerText = `Hypotenuse is ${hypt.toFixed()}`;
+        if(inputValueA.value <= 0 ||  inputValueB.value <=0 || inputValueA.value == "" || inputValueB.value == ""){
+          outputHyptValue.innerText = "Enter Vaild Input";
+
+        }
       }
       btnHypt.addEventListener("click", onHyptClicked);
     </script>
